@@ -1,23 +1,32 @@
 package com.wolf.wolfsafe;
 
+import com.wolf.wolfsafe.utils.MD5Utils;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 	
+	protected static final String TAG = "HomeActivity";
 	private GridView list_home;
 	private MyAdapter adapter;
 	private SharedPreferences sp;
@@ -76,6 +85,14 @@ public class HomeActivity extends Activity {
 		}
 			
 	}
+	
+	private EditText et_setup_pwd;
+	private EditText et_setup_confirm;
+	private Button ok;
+	private Button cancel;
+	
+	private AlertDialog dialog;
+	
 	/**
 	 * 设置密码对话框
 	 */
@@ -83,16 +100,110 @@ public class HomeActivity extends Activity {
 		AlertDialog.Builder builder = new Builder(HomeActivity.this);
 		//自定义一个布局文件
 		View view = View.inflate(HomeActivity.this, R.layout.dialog_setup_password, null);
-		builder.setView(view);
+
+		et_setup_pwd = (EditText) view.findViewById(R.id.et_setup_pwd);
+		et_setup_confirm = (EditText) view.findViewById(R.id.et_setup_confirm);
+		ok = (Button) view.findViewById(R.id.ok);
+		cancel = (Button) view.findViewById(R.id.cancel);
+		cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//把这个对话框取消掉
+				dialog.dismiss();
+			}
+		});
 		
-		builder.show();
+		ok.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//取出密码
+				String password = et_setup_pwd.getText().toString().trim();
+				String password_confirm = et_setup_confirm.getText().toString().trim();
+				
+				if(TextUtils.isEmpty(password) || TextUtils.isEmpty(password_confirm)) {
+					Toast.makeText(HomeActivity.this, "密码为空", 0).show();
+					return;
+				}
+				//判断是否一致采取保存
+				if(password.equals(password_confirm)) {
+					//一致的话，就保存密码，把对话框消掉，还要进入手机防盗页面
+					Editor editor = sp.edit();
+					editor.putString("password", MD5Utils.md5Password(password)); //保存md5加密的
+					editor.commit();
+					dialog.dismiss();
+					Log.i(TAG,"一致的话，就保存密码，把对话框消掉，还要进入手机防盗页面");
+					Intent intent = new Intent(HomeActivity.this,LostFindActivity.class);
+					startActivity(intent);
+					
+				} else {
+					Toast.makeText(HomeActivity.this, "密码不一致", 0).show();
+					return;
+				}
+				
+				
+			}
+		});
 		
+//		builder.setView(view);
+		dialog = builder.create();
+		dialog.setView(view, 0, 0, 0, 0);
+		dialog.show();
 	}
 	/**
 	 * 输入密码对话框
 	 */
 	private void showEnterDialog() {
-		// TODO Auto-generated method stub
+		AlertDialog.Builder builder = new Builder(HomeActivity.this);
+		//自定义一个布局文件
+		View view = View.inflate(HomeActivity.this, R.layout.dialog_enter_password, null);
+		et_setup_pwd = (EditText) view.findViewById(R.id.et_setup_pwd);
+		ok = (Button) view.findViewById(R.id.ok);
+		cancel = (Button) view.findViewById(R.id.cancel);
+		cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//把这个对话框取消掉
+				dialog.dismiss();
+			}
+		});
+		
+		ok.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//取出密码
+				String password = et_setup_pwd.getText().toString().trim();
+				String savePassword = sp.getString("password", ""); //取出加密后的密码
+				if(TextUtils.isEmpty(password)) {
+					Toast.makeText(HomeActivity.this, "密码为空", 0).show();
+					return;
+				} 
+				
+				if(MD5Utils.md5Password(password).equals(savePassword)) {
+					//输入的密码是我之前设置的密码
+					//对话框消掉
+					//进入主页面
+					dialog.dismiss();
+					Log.i(TAG,"对话框消掉,进入防盗页面");
+					Intent intent = new Intent(HomeActivity.this,LostFindActivity.class);
+					startActivity(intent);
+				}else {
+					Toast.makeText(HomeActivity.this, "密码错误", 1).show();
+					et_setup_pwd.setText("");
+					return;
+				}
+			}
+		});
+		
+//		builder.setView(view);
+		dialog = builder.create();
+		dialog.setView(view, 0, 0, 0, 0);
+		dialog.show();
+		
+		
 		
 	}
 	/**
