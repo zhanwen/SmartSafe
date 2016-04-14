@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="55dip"
+        android:text="功能列表"
+        android:textSize="28sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="#8866ff00"
+        />
+
+    <com.wolf.wolfsafe.ui.FocusedTextView
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:textSize="22sp"
+        android:text="最新的手机卫士,欢迎您下载,体现新的功能,让您的手机更加健康"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    
+    
+    
+    <GridView
+        android:verticalSpacing="10dip"
+        android:layout_marginTop="15dip"
+        android:id="@+id/list_home"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:numColumns="3" >
+    </GridView>
+    
+</LinearLayout>
