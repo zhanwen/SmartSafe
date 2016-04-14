@@ -29,7 +29,8 @@
         
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".SettingActivity"></activity>
-        
+        <activity android:name=".LostFindActivity"></activity>
+         <activity android:name=".Setup1Activity"></activity>
     </application>
 
 </manifest>
