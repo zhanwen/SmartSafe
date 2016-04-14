@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wolf="http://schemas.android.com/apk/res/com.wolf.wolfsafe"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="55dip"
+        android:text="设置中心"
+        android:textSize="28sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="#8866ff00"
+        />
+
+  	<com.wolf.wolfsafe.ui.SettingItemView 
+  	    wolf:title="设置自动更新"
+  	    wolf:desc_on="设置自动更新已经开启"
+  	    wolf:desc_off="设置自动更新已经关闭"
+  	    android:id="@+id/siv_update"
+  	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+  	   	>
+	  	</com.wolf.wolfsafe.ui.SettingItemView>
+   
+</LinearLayout>
