@@ -76,13 +76,7 @@
             android:src="@drawable/setup1" />
 
         <Button
-            android:background="@drawable/button_select"
-            android:drawableRight="@drawable/next"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="下一步"
+          style="@style/button_next_style"
             />
     </RelativeLayout>
 
