@@ -54,6 +54,7 @@ public class SettingItemView extends RelativeLayout {
 		desc_on = attrs.getAttributeValue("http://schemas.android.com/apk/res/com.wolf.wolfsafe", "desc_on");
 		desc_off = attrs.getAttributeValue("http://schemas.android.com/apk/res/com.wolf.wolfsafe", "desc_off");
 		tv_title.setText(title);
+		setDesc(desc_off);
 		
 	}
 
