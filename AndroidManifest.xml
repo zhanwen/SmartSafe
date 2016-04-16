@@ -18,6 +18,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 
     <application
         android:allowBackup="true"
@@ -61,8 +64,15 @@
         </receiver>
         
         <service android:name="com.wolf.wolfsafe.service.GPSService"/>
-        
-        
+        <service android:name="com.wolf.wolfsafe.service.AddressService"/>
+        <!-- 
+        <receiver android:name="com.wolf.wolfsafe.receiver.OutCallReceiver">
+            <intent-filter>
+				<action android:name="android.intent.action.NEW_OUTGOING_CALL"></action>                
+            </intent-filter>
+        </receiver>
+         -->
+         
         <!-- 
         <service android:name="com.wolf.wolfsafe.service.LockScreen"/>
         <receiver android:name="com.wolf.wolfsafe.service.MyAdmin" >
