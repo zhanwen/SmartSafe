@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.wolf.wolfsafe.R;
 import com.wolf.wolfsafe.service.GPSService;
+import com.wolf.wolfsafe.service.LockScreen;
 
 public class SMSReceiver extends BroadcastReceiver {
 	
@@ -65,6 +66,7 @@ public class SMSReceiver extends BroadcastReceiver {
 					player.setVolume(1.0f, 1.0f);
 					player.start();
 					
+					//把这个广播终止掉
 					abortBroadcast();
 				}
 				else if("#*wipedata*#".equals(body)){
@@ -75,6 +77,9 @@ public class SMSReceiver extends BroadcastReceiver {
 				else if("#*lockscreen*#".equals(body)){
 					//远程锁屏
 					Log.i(TAG, "远程锁屏");
+//					Intent i = new Intent(context,LockScreen.class);
+//					context.startService(i);
+					
 					abortBroadcast();
 				}
 			}
