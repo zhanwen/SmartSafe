@@ -43,6 +43,8 @@
         <activity android:name=".Setup2Activity"/>
         <activity android:name=".Setup3Activity"/>
         <activity android:name=".Setup4Activity"/>
+        <activity android:name=".AToolsActivity"/>
+        <activity android:name=".NumberAddressActivity"/>
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -61,7 +63,25 @@
         <service android:name="com.wolf.wolfsafe.service.GPSService"/>
         
         
-        
+        <!-- 
+        <service android:name="com.wolf.wolfsafe.service.LockScreen"/>
+        <receiver android:name="com.wolf.wolfsafe.service.MyAdmin" >
+        </receiver>
+        <receiver
+            android:name="com.screen.lockscreen.MyAdmin"
+            android:description="@string/sample_device_admin_description"
+            android:label="@string/sample_device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+         -->
+       
         
     </application>
 
