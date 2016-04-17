@@ -11,9 +11,9 @@
         android:src="@android:drawable/ic_menu_call" />
 
     <TextView
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:id="@+id/tv_address"
-        android:text="号码归属地显示"
+        android:text="号码归属地显示"    
         android:textSize="22sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
