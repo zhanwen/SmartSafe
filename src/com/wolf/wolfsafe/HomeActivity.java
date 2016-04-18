@@ -60,19 +60,22 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+					Intent intent;
 					switch (position) {
-					case 8: //进入设置中心 
-						Intent intent = new Intent(HomeActivity.this, SettingActivity.class);
-						startActivity(intent);
-						break;
 					case 0: //进入手机防盗页面
 						showLostFindDialog();
 						break;
-					case 7: //进入高级工具
-						Intent intents = new Intent(HomeActivity.this, AToolsActivity.class);
-						startActivity(intents);
+					case 1: //加载黑名单拦截界面
+						intent = new Intent(HomeActivity.this, CallSmsSafeActivity.class);
+						startActivity(intent);
 						break;
-					default:
+					case 7: //进入高级工具
+						intent = new Intent(HomeActivity.this, AToolsActivity.class);
+						startActivity(intent);
+						break;
+					case 8: //进入设置中心 
+						intent = new Intent(HomeActivity.this, SettingActivity.class);
+						startActivity(intent);
 						break;
 					}
 			}
