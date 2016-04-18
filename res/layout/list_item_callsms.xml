@@ -4,24 +4,34 @@
     android:layout_height="wrap_content" >
 
     <TextView
-        android:layout_marginLeft="10dip"
-        android:layout_marginTop="3dip"
         android:id="@+id/tv_black_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="3dip"
         android:text="黑名单号码"
         android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
-        android:layout_marginLeft="10dip"
-        android:layout_marginTop="3dip"
-         android:id="@+id/tv_block_mode"
-         android:layout_below="@id/tv_black_number"
+        android:id="@+id/tv_block_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_black_number"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="3dip"
         android:text="拦截模式"
         android:textColor="#88000000"
         android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/delete_selector"
+        android:layout_marginRight="3dip"
+        />
 
 </RelativeLayout>
