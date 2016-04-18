@@ -1,11 +1,8 @@
 package com.wolf.wolfsafe.receiver;
 
-import com.wolf.wolfsafe.db.dao.NumberAddressQueryUtils;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class OutCallReceiver extends BroadcastReceiver {
 
