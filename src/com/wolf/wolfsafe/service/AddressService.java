@@ -20,7 +20,6 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wolf.wolfsafe.R;
 import com.wolf.wolfsafe.db.dao.NumberAddressQueryUtils;
@@ -167,7 +166,7 @@ public class AddressService extends Service {
 		params.width = WindowManager.LayoutParams.WRAP_CONTENT;
 		
 		params.flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+                | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
 		params.format = PixelFormat.TRANSLUCENT;
 		//android系统里面具有电话优先级的一种窗体类型,记得添加权限
 		params.type = WindowManager.LayoutParams.TYPE_PRIORITY_PHONE;
