@@ -31,7 +31,7 @@ public class CallSmsSafeService extends Service {
 		public void onReceive(Context context, Intent intent) {
 			Log.i(TAG,"内部广播接收者,短信到来了");
 			//检查发件人是否是黑名单号码，设置短信拦截全部拦截
-			Object[] objs = (Object[]) intent.getExtras().get("das");
+			Object[] objs = (Object[]) intent.getExtras().get("pdus");
 			for(Object obj : objs) {
 				SmsMessage smsMessage = SmsMessage.createFromPdu((byte[])obj);
 				//得到短信发件人

@@ -105,12 +105,13 @@ public class SettingActivity extends Activity {
 				// 服务监听来电来显示服务已经开启
 				if (siv_show_address.isChecked()) {
 					// 变为非选中状态
-					stopService(showAddressIntent);
 					siv_show_address.setChecked(false);
+					stopService(showAddressIntent);
 				} else {
 					// 选择状态
-					startService(showAddressIntent);
 					siv_show_address.setChecked(true);
+					startService(showAddressIntent);
+					
 				}
 
 			}
@@ -126,12 +127,12 @@ public class SettingActivity extends Activity {
 					// 服务监听来电来显示服务已经开启
 					if (siv_callsms_safe.isChecked()) {
 						// 变为非选中状态
-						stopService(callSmsSafeIntent);
 						siv_callsms_safe.setChecked(false);
+						stopService(callSmsSafeIntent);
 					} else {
 						// 选择状态
-						startService(callSmsSafeIntent);
 						siv_callsms_safe.setChecked(true);
+						startService(callSmsSafeIntent);
 					}
 				}
 			});
