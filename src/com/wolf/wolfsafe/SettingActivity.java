@@ -33,13 +33,16 @@ public class SettingActivity extends Activity {
 	//设置归属地显示框背景
 	private SettingClickView scv_changbg;
 	
+	//黑名单的拦截设置
+	private SettingItemView siv_callsms_safe;
+	private Intent callSmsSafeIntent;
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		showAddressIntent = new Intent(this, AddressService.class);
 		boolean isRunning = ServiceUtils.isServiceRunning(this,
 				"com.wolf.wolfsafe.service.AddressService");
-		
 		if(isRunning) {
 			//监听来电的服务是运行的
 			siv_show_address.setChecked(true);
@@ -48,6 +51,9 @@ public class SettingActivity extends Activity {
 			siv_show_address.setChecked(false);
 		}
 		
+		boolean isCallSmsRunning = ServiceUtils.isServiceRunning(this,
+				"com.wolf.wolfsafe.service.CallSmsSafeService");
+		siv_callsms_safe.setChecked(isCallSmsRunning);
 	}
 
 	@Override
@@ -90,9 +96,8 @@ public class SettingActivity extends Activity {
 			}
 		});
 
-		// 设置是否开启来电归属地显示
+		// 设置号码归属地显示控件
 		siv_show_address = (SettingItemView) findViewById(R.id.siv_show_address);
-		
 		siv_show_address.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -111,6 +116,26 @@ public class SettingActivity extends Activity {
 			}
 		});
 
+		//黑名单拦截设置
+			siv_callsms_safe = (SettingItemView) findViewById(R.id.siv_callsms_safe);
+			callSmsSafeIntent = new Intent(this, CallSmsSafeActivity.class);
+			siv_callsms_safe.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// 服务监听来电来显示服务已经开启
+					if (siv_callsms_safe.isChecked()) {
+						// 变为非选中状态
+						stopService(callSmsSafeIntent);
+						siv_callsms_safe.setChecked(false);
+					} else {
+						// 选择状态
+						startService(callSmsSafeIntent);
+						siv_callsms_safe.setChecked(true);
+					}
+				}
+			});
+		
 		scv_changbg = (SettingClickView) findViewById(R.id.scv_changbg);
 		scv_changbg.setTitle("归属地提示框风格");
 		final String[] items = {"半透明","活力橙","卫士蓝","金属灰","苹果绿"};

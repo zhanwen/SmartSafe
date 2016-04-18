@@ -73,6 +73,8 @@
         
         <service android:name="com.wolf.wolfsafe.service.GPSService"/>
         <service android:name="com.wolf.wolfsafe.service.AddressService"/>
+        <service android:name="com.wolf.wolfsafe.receiver.CallSmsSafeService"/>
+        
         <!-- 
         <receiver android:name="com.wolf.wolfsafe.receiver.OutCallReceiver">
             <intent-filter>
