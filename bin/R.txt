@@ -346,7 +346,7 @@ int id progress_horizontal 0x7f0b0005
 int id radio 0x7f0b002f
 int id result 0x7f0b0042
 int id rl_root_splash 0x7f0b004b
-int id scv_changbg 0x7f0b0046
+int id scv_changebg 0x7f0b0046
 int id search_badge 0x7f0b0032
 int id search_bar 0x7f0b0031
 int id search_button 0x7f0b0033

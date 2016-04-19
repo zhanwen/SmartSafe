@@ -28,7 +28,7 @@ public class SMSReceiver extends BroadcastReceiver {
 		
 		for(Object b:objs){
 			//具体的某一条短信
-			SmsMessage sms =SmsMessage.createFromPdu((byte[]) b);
+			SmsMessage sms = SmsMessage.createFromPdu((byte[]) b);
 			//发送者
 			String sender = sms.getOriginatingAddress();//15555555556
 			String safenumber = sp.getString("safenumber", "");//5556

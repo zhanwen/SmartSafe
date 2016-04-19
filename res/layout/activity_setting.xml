@@ -34,14 +34,14 @@
     </com.wolf.wolfsafe.ui.SettingItemView>
 
     <com.wolf.wolfsafe.ui.SettingClickView
-        android:id="@+id/scv_changbg"
+        android:id="@+id/scv_changebg"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
     </com.wolf.wolfsafe.ui.SettingClickView>
     
     <com.wolf.wolfsafe.ui.SettingItemView
         android:id="@+id/siv_callsms_safe"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         wolf:desc_off="黑名单拦截已经关闭"
         wolf:desc_on="黑名单拦截已经开启"

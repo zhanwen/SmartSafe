@@ -1205,7 +1205,7 @@ containing a value of this type.
         public static final int radio=0x7f0b002f;
         public static final int result=0x7f0b0042;
         public static final int rl_root_splash=0x7f0b004b;
-        public static final int scv_changbg=0x7f0b0046;
+        public static final int scv_changebg=0x7f0b0046;
         public static final int search_badge=0x7f0b0032;
         public static final int search_bar=0x7f0b0031;
         public static final int search_button=0x7f0b0033;

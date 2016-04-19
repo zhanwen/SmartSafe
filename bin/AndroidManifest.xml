@@ -19,7 +19,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
@@ -27,6 +26,8 @@
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.wolf.wolfsafe" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
     
     
     <application
@@ -65,7 +66,7 @@
         <activity android:name=".SelectContactActivity"/>
         
         <receiver android:name="com.wolf.wolfsafe.receiver.SMSReceiver">
-			<intent-filter android:priority="1000">
+			<intent-filter android:priority="100">
 			    <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
 			    
 			</intent-filter>          
@@ -73,8 +74,7 @@
         
         <service android:name="com.wolf.wolfsafe.service.GPSService"/>
         <service android:name="com.wolf.wolfsafe.service.AddressService"/>
-        <service android:name="com.wolf.wolfsafe.receiver.CallSmsSafeService"/>
-        
+        <service android:name="com.wolf.wolfsafe.service.CallSmsSafeService"/>
         <!-- 
         <receiver android:name="com.wolf.wolfsafe.receiver.OutCallReceiver">
             <intent-filter>
