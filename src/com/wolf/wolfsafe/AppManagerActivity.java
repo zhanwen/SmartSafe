@@ -1,8 +1,10 @@
 package com.wolf.wolfsafe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
@@ -13,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wolf.wolfsafe.domain.AppInfo;
@@ -24,7 +27,20 @@ public class AppManagerActivity extends Activity {
 	private ListView lv_app_manager;
 	private LinearLayout ll_loading;
 	
+	/**
+	 * 所用的应用程序包信息
+	 */
 	private List<AppInfo> appInfos;
+	
+	/**
+	 * 用户应用程序的集合
+	 */
+	private List<AppInfo> userAppInfos;
+	
+	/**
+	 * 系统应用程序的集合
+	 */
+	private List<AppInfo> systemAppInfos;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +61,15 @@ public class AppManagerActivity extends Activity {
 			@Override
 			public void run() {
 				appInfos = AppInfoProvider.getAppInfos(AppManagerActivity.this);
+				userAppInfos = new ArrayList<AppInfo>();
+				systemAppInfos = new ArrayList<AppInfo>();
+				for(AppInfo info : appInfos){
+					if(info.isUserApp()) {
+						userAppInfos.add(info);
+					}else {
+						systemAppInfos.add(info);
+					}
+				}
 				//加载listview的数据适配器
 				runOnUiThread(new Runnable() {
 					
@@ -59,17 +84,54 @@ public class AppManagerActivity extends Activity {
 	}
 	
 	private class AppManagerAdapter extends BaseAdapter {
-
+		
+		//控制listview有多少个条目
 		@Override
 		public int getCount() {
-			return appInfos.size();
+			//return appInfos.size();
+			return userAppInfos.size() + 1 + systemAppInfos.size()+1;
 		}
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
+			AppInfo appInfo;
+			if(position == 0) {
+				//显示用户程序有多少个小标签
+				TextView tv = new TextView(getApplicationContext());
+				tv.setTextColor(Color.WHITE);
+				tv.setBackgroundColor(Color.GRAY);
+				tv.setText("用户程序:" + userAppInfos.size() + "个");
+				return tv;
+			}else if(position == (userAppInfos.size() + 1)) {
+				TextView tv = new TextView(getApplicationContext());
+				tv.setTextColor(Color.WHITE);
+				tv.setBackgroundColor(Color.GRAY);
+				tv.setText("系统程序:" + systemAppInfos.size() + "个");
+				return tv;
+			}else if(position <= userAppInfos.size()){
+				//用户程序 
+				int newPosition	= position - 1;//因为多了一个textview的文本占用了位置
+				appInfo = userAppInfos.get(newPosition);
+			}else {//系统程序
+				int newPosition = position - 1 - userAppInfos.size() - 1;
+				appInfo = systemAppInfos.get(newPosition);
+			}
+			
+			
 			View view;
 			ViewHolder holder;
-			if(convertView != null) {
+			
+//			if(position < userAppInfos.size()) {
+//				//位置是留给用户程序显示的
+//				appInfo = userAppInfos.get(position);
+//			}else {
+//				//这些位置是留给系统程序的
+//				int newPosition = position - userAppInfos.size();
+//				appInfo = systemAppInfos.get(newPosition);
+//			}
+//			
+			if(convertView != null && convertView instanceof RelativeLayout) {
+				//不仅需要检查是否为空，还要判断是否是合适的类型去复用
 				view = convertView;
 				holder = (ViewHolder) view.getTag();
 			}else {
@@ -81,9 +143,14 @@ public class AppManagerActivity extends Activity {
 				view.setTag(holder);
 			}
 			
-			AppInfo appInfo = appInfos.get(position);
+		
 			holder.iv_icon.setImageDrawable(appInfo.getIcon());
 			holder.tv_name.setText(appInfo.getName());
+			if(appInfo.isInRom()) {
+				holder.tv_location.setText("手机内存");
+			}else {
+				holder.tv_location.setText("外部存储");
+			}
 			
 			return view;
 		}
