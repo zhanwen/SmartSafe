@@ -7,85 +7,84 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="20" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
-    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.wolf.wolfsafe" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
-    
-    
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <uses-library android:name="android.test.runner" />
+
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name"
-             >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".SettingActivity"/>
-        <activity android:name=".LostFindActivity"/>
-        <activity android:name=".Setup1Activity"/>
-        <activity android:name=".Setup2Activity"/>
-        <activity android:name=".Setup3Activity"/>
-        <activity android:name=".Setup4Activity"/>
-        <activity android:name=".AToolsActivity"/>
-        <activity android:name=".NumberAddressActivity"/>
-        <activity android:name=".CallSmsSafeActivity"/>
-        <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver">
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".LostFindActivity" />
+        <activity android:name=".Setup1Activity" />
+        <activity android:name=".Setup2Activity" />
+        <activity android:name=".Setup3Activity" />
+        <activity android:name=".Setup4Activity" />
+        <activity android:name=".AToolsActivity" />
+        <activity android:name=".NumberAddressActivity" />
+        <activity android:name=".CallSmsSafeActivity" />
+        <activity android:name=".AppManagerActivity" />
+        <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-            
         </receiver>
-        <activity android:name=".SelectContactActivity"/>
-        
-        <receiver android:name="com.wolf.wolfsafe.receiver.SMSReceiver">
-			<intent-filter android:priority="100">
-			    <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
-			    
-			</intent-filter>          
+
+        <activity android:name=".SelectContactActivity" />
+
+        <receiver android:name="com.wolf.wolfsafe.receiver.SMSReceiver" >
+            <intent-filter android:priority="100" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
         </receiver>
-        
-        <service android:name="com.wolf.wolfsafe.service.GPSService"/>
-        <service android:name="com.wolf.wolfsafe.service.AddressService"/>
-        <service android:name="com.wolf.wolfsafe.service.CallSmsSafeService"/>
-        <!-- 
+
+        <service android:name="com.wolf.wolfsafe.service.GPSService" />
+        <service android:name="com.wolf.wolfsafe.service.AddressService" />
+        <service android:name="com.wolf.wolfsafe.service.CallSmsSafeService" />
+        <!--
         <receiver android:name="com.wolf.wolfsafe.receiver.OutCallReceiver">
             <intent-filter>
 				<action android:name="android.intent.action.NEW_OUTGOING_CALL"></action>                
             </intent-filter>
         </receiver>
-         -->
-         
-        <!-- 
+        -->
+
+
+        <!--
         <service android:name="com.wolf.wolfsafe.service.LockScreen"/>
         <receiver android:name="com.wolf.wolfsafe.service.MyAdmin" >
         </receiver>
@@ -102,9 +101,8 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-         -->
-       
-        
+        -->
+
     </application>
 
 </manifest>
