@@ -40,11 +40,11 @@
 
         <LinearLayout
             android:id="@+id/ll_loading"
-            android:visibility="invisible"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:visibility="invisible" >
 
             <ProgressBar
                 android:layout_width="wrap_content"
@@ -52,14 +52,24 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:text="正在加载程序信息......"/>
+                android:layout_height="wrap_content"
+                android:text="正在加载程序信息......" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="用户程序:6个" 
+            android:textColor="#ffffff"
+            android:background="#ff888888"/>
+
         <ListView
+            android:overScrollMode="never"
             android:id="@+id/lv_app_manager"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent"
+            android:fastScrollEnabled="true" >
         </ListView>
     </FrameLayout>
 

@@ -11,6 +11,8 @@ import android.os.StatFs;
 import android.text.format.Formatter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,11 +44,14 @@ public class AppManagerActivity extends Activity {
 	 */
 	private List<AppInfo> systemAppInfos;
 	
+	//当前程序信息的状态
+	private TextView tv_status;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_app_manager);
-		
+		tv_status = (TextView) findViewById(R.id.tv_status);
 		tv_avail_rom = (TextView) findViewById(R.id.tv_avail_rom);
 		tv_avail_sd = (TextView) findViewById(R.id.tv_avail_sd);
 		lv_app_manager = (ListView) findViewById(R.id.lv_app_manager);
@@ -81,6 +86,30 @@ public class AppManagerActivity extends Activity {
 				});
 			}
 		}.start();
+		//给listview注册一个滚动的监听器
+		lv_app_manager.setOnScrollListener(new OnScrollListener() {
+			
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				
+			}
+			
+			//滚动的时候调用的方法
+			//firstVisibleItem 第一个可见条目在listview集合里面的位置
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem,
+					int visibleItemCount, int totalItemCount) {
+				if(userAppInfos != null && systemAppInfos != null) {
+					if(firstVisibleItem > userAppInfos.size()) {
+						tv_status.setText("系统程序:" + systemAppInfos.size() + "个");
+					}else {
+						tv_status.setText("用户程序:" + userAppInfos.size() + "个");
+					}
+				}
+			}
+		});
+		
+		
 	}
 	
 	private class AppManagerAdapter extends BaseAdapter {
