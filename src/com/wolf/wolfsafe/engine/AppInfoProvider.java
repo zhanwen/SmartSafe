@@ -28,13 +28,14 @@ public class AppInfoProvider {
 		//所有安装在系统上的应用程序包信息.
 		List<PackageInfo> packInfos = pm.getInstalledPackages(0);
 		List<AppInfo> appInfos = new ArrayList<AppInfo>();
-		AppInfo appInfo = new AppInfo();
+		AppInfo appInfo = null;
 		for(PackageInfo packInfo : packInfos) {
 			//packInfo 相当于一个应用程序apk包的清单文件
 			String packname = packInfo.packageName;
 			Drawable icon = packInfo.applicationInfo.loadIcon(pm); 
 			String name = packInfo.applicationInfo.loadLabel(pm).toString();
 			int flags = packInfo.applicationInfo.flags; //应用程序的标记,相当于用户提交的答卷
+			appInfo = new AppInfo();
 			if((flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
 				//用户程序
 				appInfo.setUserApp(true);
