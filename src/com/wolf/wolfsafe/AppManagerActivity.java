@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.wolf.wolfsafe.domain.AppInfo;
 import com.wolf.wolfsafe.engine.AppInfoProvider;
+import com.wolf.wolfsafe.utils.DensityUtil;
 
 public class AppManagerActivity extends Activity {
 	private TextView tv_avail_rom;
@@ -146,7 +147,10 @@ public class AppManagerActivity extends Activity {
 //				popupWindow.setBackgroundDrawable(new ColorDrawable(Color.RED));
 				int[] location = new int[2];
 				view.getLocationInWindow(location);
-				popupWindow.showAtLocation(parent, Gravity.LEFT | Gravity.TOP, location[0], location[1]);
+				//在代码里面设置的宽高值 都是像素-----> dip
+				int dip = 60;
+				int px = DensityUtil.dip2px(getApplicationContext(), dip);
+				popupWindow.showAtLocation(parent, Gravity.LEFT | Gravity.TOP, px, location[1]);
 			}
 		});
 	}
