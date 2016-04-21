@@ -141,11 +141,9 @@ public class AppManagerActivity extends Activity {
 //				System.out.println(appInfo.getPackname());
 				dismissPopupWindow();
 				
-				TextView contentView = new TextView(getApplicationContext());
-				contentView.setText(appInfo.getPackname());
-				contentView.setTextColor(Color.BLACK);
+				View contentView = View.inflate(getApplicationContext(), R.layout.popup_app_item, null);
 				popupWindow = new PopupWindow(contentView, -2, -2);
-				popupWindow.setBackgroundDrawable(new ColorDrawable(Color.RED));
+//				popupWindow.setBackgroundDrawable(new ColorDrawable(Color.RED));
 				int[] location = new int[2];
 				view.getLocationInWindow(location);
 				popupWindow.showAtLocation(parent, Gravity.LEFT | Gravity.TOP, location[0], location[1]);
