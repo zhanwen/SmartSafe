@@ -356,6 +356,7 @@ public class AppManagerActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.ll_share:
 			Log.i(TAG,"分享" + appInfo.getName());
+			shareApplication();
 			break;
 		case R.id.ll_uninstall:
 			if(appInfo.isUserApp()) {
@@ -368,7 +369,18 @@ public class AppManagerActivity extends Activity implements OnClickListener {
 			break;
 		}
 	}
-	
+	/**
+	 * 分享一个应用程序
+	 */
+	private void shareApplication() {
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.SEND");
+		intent.addCategory(Intent.CATEGORY_DEFAULT);
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_TEXT, "推荐您使用一款软件，名称叫:" + appInfo.getName());
+		startActivity(intent);
+	}
+
 	/**
 	 * 卸载应用
 	 */
