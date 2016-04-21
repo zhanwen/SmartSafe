@@ -18,13 +18,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -71,10 +73,10 @@ public class SplashActivity extends Activity {
 		
 		boolean update = sp.getBoolean("update", false);
 		
+		installShortCut();
+		
 		//拷贝数据库
 		copyDB();
-		
-		
 		if(update) {
 			//检查升级
 			checkUpdate();
@@ -96,6 +98,37 @@ public class SplashActivity extends Activity {
 		aa.setDuration(500);
 		findViewById(R.id.rl_root_splash).startAnimation(aa);
 		
+	}
+
+	/**
+	 * 创建快捷图标
+	 */
+	private void installShortCut() {
+		boolean shortcut = sp.getBoolean("shortcut", false);
+		if(shortcut) {
+			return;
+		}
+		Editor editor = sp.edit();
+		
+		//发送广播的意图，告诉桌面创建快捷图标
+		Intent intent = new Intent();
+		intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+		//快捷方式	要包含三个重要信息 1.名称 2.图标 3.干什么事情
+		intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "狼牙卫士");
+		intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+		//桌面点击图标对应的意图
+		Intent shortcutIntent = new Intent();
+		shortcutIntent.setAction("android.intent.action.MAIN");
+		shortcutIntent.addCategory("android.intent.category.LAUNCHER");
+		shortcutIntent.setClassName(getPackageName(), "com.wolf.wolfsafe.SplashActivity");
+//		shortcutIntent.setAction("com.wolf.xxx");
+//		shortcutIntent.addCategory("android.intent.category.DEFAULT");
+		intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+		
+		sendBroadcast(intent);	
+		Toast.makeText(this, "桌面快捷图标已创建", 0).show();
+		editor.putBoolean("shortcut", true);
+		editor.commit();
 	}
 
 	// path 把address.db这个数据库拷贝到/data/data/<包名>/files/address.db		
