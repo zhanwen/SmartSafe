@@ -303,7 +303,7 @@ int id action_context_bar 0x7f0b001d
 int id action_menu_divider 0x7f0b0002
 int id action_menu_presenter 0x7f0b0003
 int id action_mode_close_button 0x7f0b0024
-int id action_settings 0x7f0b0068
+int id action_settings 0x7f0b006b
 int id activity_chooser_view_content 0x7f0b0025
 int id ad_phone 0x7f0b0046
 int id always 0x7f0b000f
@@ -312,7 +312,7 @@ int id cancel 0x7f0b005a
 int id cb_phone 0x7f0b0057
 int id cb_protecting 0x7f0b004f
 int id cb_sms 0x7f0b0058
-int id cb_status 0x7f0b0067
+int id cb_status 0x7f0b006a
 int id checkbox 0x7f0b002d
 int id collapseActionView 0x7f0b0010
 int id default_activity_button 0x7f0b0028
@@ -341,6 +341,9 @@ int id list_home 0x7f0b0043
 int id list_item 0x7f0b0029
 int id list_select_contact 0x7f0b0048
 int id ll_loading 0x7f0b003f
+int id ll_share 0x7f0b0067
+int id ll_start 0x7f0b0066
+int id ll_uninstall 0x7f0b0065
 int id lv_app_manager 0x7f0b0041
 int id lv_callsms_safe 0x7f0b0042
 int id middle 0x7f0b0018
@@ -385,14 +388,14 @@ int id tv_avail_rom 0x7f0b003d
 int id tv_avail_sd 0x7f0b003e
 int id tv_black_number 0x7f0b0060
 int id tv_block_mode 0x7f0b0061
-int id tv_desc 0x7f0b0066
+int id tv_desc 0x7f0b0069
 int id tv_item 0x7f0b0064
 int id tv_name 0x7f0b0054
 int id tv_phone 0x7f0b0055
 int id tv_safenumber 0x7f0b0044
 int id tv_splash_version 0x7f0b0051
 int id tv_status 0x7f0b0040
-int id tv_title 0x7f0b0065
+int id tv_title 0x7f0b0068
 int id tv_update_info 0x7f0b0052
 int id up 0x7f0b0021
 int id useLogo 0x7f0b000e

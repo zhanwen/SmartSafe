@@ -1162,7 +1162,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0b0002;
         public static final int action_menu_presenter=0x7f0b0003;
         public static final int action_mode_close_button=0x7f0b0024;
-        public static final int action_settings=0x7f0b0068;
+        public static final int action_settings=0x7f0b006b;
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int ad_phone=0x7f0b0046;
         public static final int always=0x7f0b000f;
@@ -1171,7 +1171,7 @@ containing a value of this type.
         public static final int cb_phone=0x7f0b0057;
         public static final int cb_protecting=0x7f0b004f;
         public static final int cb_sms=0x7f0b0058;
-        public static final int cb_status=0x7f0b0067;
+        public static final int cb_status=0x7f0b006a;
         public static final int checkbox=0x7f0b002d;
         public static final int collapseActionView=0x7f0b0010;
         public static final int default_activity_button=0x7f0b0028;
@@ -1200,6 +1200,9 @@ containing a value of this type.
         public static final int list_item=0x7f0b0029;
         public static final int list_select_contact=0x7f0b0048;
         public static final int ll_loading=0x7f0b003f;
+        public static final int ll_share=0x7f0b0067;
+        public static final int ll_start=0x7f0b0066;
+        public static final int ll_uninstall=0x7f0b0065;
         public static final int lv_app_manager=0x7f0b0041;
         public static final int lv_callsms_safe=0x7f0b0042;
         public static final int middle=0x7f0b0018;
@@ -1244,14 +1247,14 @@ containing a value of this type.
         public static final int tv_avail_sd=0x7f0b003e;
         public static final int tv_black_number=0x7f0b0060;
         public static final int tv_block_mode=0x7f0b0061;
-        public static final int tv_desc=0x7f0b0066;
+        public static final int tv_desc=0x7f0b0069;
         public static final int tv_item=0x7f0b0064;
         public static final int tv_name=0x7f0b0054;
         public static final int tv_phone=0x7f0b0055;
         public static final int tv_safenumber=0x7f0b0044;
         public static final int tv_splash_version=0x7f0b0051;
         public static final int tv_status=0x7f0b0040;
-        public static final int tv_title=0x7f0b0065;
+        public static final int tv_title=0x7f0b0068;
         public static final int tv_update_info=0x7f0b0052;
         public static final int up=0x7f0b0021;
         public static final int useLogo=0x7f0b000e;

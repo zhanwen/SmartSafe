@@ -6,6 +6,7 @@
     android:orientation="horizontal" >
 
     <LinearLayout
+        android:id="@+id/ll_uninstall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -17,11 +18,13 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="卸载"/>
+            android:layout_height="wrap_content"
+            android:text="卸载" />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginLeft="5dip"
+        android:id="@+id/ll_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -33,12 +36,13 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="启动"/>
+            android:layout_height="wrap_content"
+            android:text="启动" />
     </LinearLayout>
-    
-    
+
     <LinearLayout
+        android:layout_marginLeft="5dip"
+          android:id="@+id/ll_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -50,9 +54,8 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="分享"/>
+            android:layout_height="wrap_content"
+            android:text="分享" />
     </LinearLayout>
-    
-    
+
 </LinearLayout>
