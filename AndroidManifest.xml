@@ -68,7 +68,7 @@
         <activity android:name=".NumberAddressActivity" />
         <activity android:name=".CallSmsSafeActivity" />
         <activity android:name=".AppManagerActivity" />
-
+         <activity android:name=".TaskManagerActivity" />
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
