@@ -9,9 +9,11 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Debug.MemoryInfo;
 
+import com.wolf.wolfsafe.R;
 import com.wolf.wolfsafe.domain.TaskInfo;
 
 /**
@@ -56,6 +58,8 @@ public class TaskInfoProvider {
 				
 			} catch (NameNotFoundException e) {
 				e.printStackTrace();
+				taskInfo.setIcon(context.getResources().getDrawable(R.drawable.ic_default));
+				taskInfo.setName(packname);
 			}
 			taskInfos.add(taskInfo);
 		}

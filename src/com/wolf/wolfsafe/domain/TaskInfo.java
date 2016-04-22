@@ -14,6 +14,16 @@ public class TaskInfo {
 	private String packname;
 	private long memsize;
 	private boolean userTask; //true用户进程，false系统进程
+	private boolean checked;
+	
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+	
+	public boolean isChecked() {
+		return checked;
+	}
+	
 	public Drawable getIcon() {
 		return icon;
 	}
