@@ -70,6 +70,7 @@
         <activity android:name=".CallSmsSafeActivity" />
         <activity android:name=".AppManagerActivity" />
          <activity android:name=".TaskManagerActivity" />
+         <activity android:name=".TaskSettingActivity" />
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -87,6 +88,7 @@
         <service android:name="com.wolf.wolfsafe.service.GPSService" />
         <service android:name="com.wolf.wolfsafe.service.AddressService" />
         <service android:name="com.wolf.wolfsafe.service.CallSmsSafeService" />
+        <service android:name="com.wolf.wolfsafe.service.AutoCleanService" />
         <!--
         <receiver android:name="com.wolf.wolfsafe.receiver.OutCallReceiver">
             <intent-filter>

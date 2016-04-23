@@ -5,6 +5,8 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.format.Formatter;
@@ -13,8 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -169,7 +171,12 @@ public class TaskManagerActivity extends Activity {
 		
 		@Override
 		public int getCount() {
-			return userTaskInfos.size() + 1 + systemTaskInfos.size() + 1;
+			SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+			if(sp.getBoolean("showsystem", false)) {
+				return userTaskInfos.size() + 1 + systemTaskInfos.size() + 1;
+			}else {
+				return userTaskInfos.size() + 1;
+			}
 		}
 		
 		@Override
@@ -311,6 +318,15 @@ public class TaskManagerActivity extends Activity {
 	 * Ω¯»Î…Ë÷√
 	 */
 	public void enterSetting(View view) {
-		
+		Intent intent = new Intent(this,TaskSettingActivity.class);
+		startActivityForResult(intent, 0);
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		adapter.notifyDataSetChanged();
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	
 }
