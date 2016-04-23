@@ -1121,35 +1121,40 @@ containing a value of this type.
         public static final int delete_selector=0x7f02006a;
         public static final int function_greenbutton_normal=0x7f02006b;
         public static final int function_greenbutton_pressed=0x7f02006c;
-        public static final int gradient_box=0x7f02006d;
-        public static final int gradient_box_pressed=0x7f02006e;
-        public static final int ic_default=0x7f02006f;
-        public static final int ic_delete_btn=0x7f020070;
-        public static final int ic_delete_btn_focused=0x7f020071;
-        public static final int ic_launcher=0x7f020072;
-        public static final int img1=0x7f020073;
-        public static final int img2=0x7f020074;
-        public static final int img3=0x7f020075;
-        public static final int jiantou1_pressed=0x7f020076;
-        public static final int listview_devider=0x7f020077;
-        public static final int local_popup_bg=0x7f020078;
-        public static final int lock=0x7f020079;
-        public static final int lunch_bg=0x7f02007a;
-        public static final int netmanager=0x7f02007b;
-        public static final int next=0x7f02007c;
-        public static final int phone=0x7f02007d;
-        public static final int presence_invisible=0x7f02007e;
-        public static final int presence_online=0x7f02007f;
-        public static final int previous=0x7f020080;
-        public static final int safe=0x7f020081;
-        public static final int settings=0x7f020082;
-        public static final int setup1=0x7f020083;
-        public static final int shape_select=0x7f020084;
-        public static final int star_big_on=0x7f020085;
-        public static final int sysoptimize=0x7f020086;
-        public static final int taskmanager=0x7f020087;
-        public static final int trojan=0x7f020088;
-        public static final int unlock=0x7f020089;
+        public static final int function_greenbutton_selector=0x7f02006d;
+        public static final int function_greenbutton_textcolor_selector=0x7f02006e;
+        public static final int gradient_box=0x7f02006f;
+        public static final int gradient_box_pressed=0x7f020070;
+        public static final int ic_default=0x7f020071;
+        public static final int ic_delete_btn=0x7f020072;
+        public static final int ic_delete_btn_focused=0x7f020073;
+        public static final int ic_launcher=0x7f020074;
+        public static final int img1=0x7f020075;
+        public static final int img2=0x7f020076;
+        public static final int img3=0x7f020077;
+        public static final int jiantou1_pressed=0x7f020078;
+        public static final int listview_devider=0x7f020079;
+        public static final int local_popup_bg=0x7f02007a;
+        public static final int lock=0x7f02007b;
+        public static final int lunch_bg=0x7f02007c;
+        public static final int netmanager=0x7f02007d;
+        public static final int next=0x7f02007e;
+        public static final int phone=0x7f02007f;
+        public static final int presence_invisible=0x7f020080;
+        public static final int presence_online=0x7f020081;
+        public static final int previous=0x7f020082;
+        public static final int safe=0x7f020083;
+        public static final int settings=0x7f020084;
+        public static final int setup1=0x7f020085;
+        public static final int shape_select=0x7f020086;
+        public static final int star_big_on=0x7f020087;
+        public static final int sysoptimize=0x7f020088;
+        public static final int taskmanager=0x7f020089;
+        public static final int trojan=0x7f02008a;
+        public static final int unlock=0x7f02008b;
+        public static final int widget_bg_portrait=0x7f02008c;
+        public static final int widget_bg_portrait_child=0x7f02008d;
+        public static final int widget_bg_portrait_child_divider=0x7f02008e;
     }
     public static final class id {
         public static final int action_bar=0x7f0b001c;
@@ -1163,11 +1168,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0b0002;
         public static final int action_menu_presenter=0x7f0b0003;
         public static final int action_mode_close_button=0x7f0b0024;
-        public static final int action_settings=0x7f0b0073;
+        public static final int action_settings=0x7f0b0076;
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int ad_phone=0x7f0b0046;
         public static final int always=0x7f0b000f;
         public static final int beginning=0x7f0b0016;
+        public static final int btn_clear=0x7f0b0073;
         public static final int cancel=0x7f0b005f;
         public static final int cb_auto_clean=0x7f0b0057;
         public static final int cb_phone=0x7f0b005c;
@@ -1215,6 +1221,8 @@ containing a value of this type.
         public static final int none=0x7f0b0019;
         public static final int normal=0x7f0b0007;
         public static final int ok=0x7f0b005e;
+        public static final int process_count=0x7f0b0071;
+        public static final int process_memory=0x7f0b0072;
         public static final int progress_circular=0x7f0b0004;
         public static final int progress_horizontal=0x7f0b0005;
         public static final int radio=0x7f0b002f;
@@ -1252,7 +1260,7 @@ containing a value of this type.
         public static final int tv_avail_sd=0x7f0b003e;
         public static final int tv_black_number=0x7f0b0065;
         public static final int tv_block_mode=0x7f0b0066;
-        public static final int tv_desc=0x7f0b0072;
+        public static final int tv_desc=0x7f0b0075;
         public static final int tv_item=0x7f0b0069;
         public static final int tv_mem_info=0x7f0b0054;
         public static final int tv_name=0x7f0b0059;
@@ -1263,7 +1271,7 @@ containing a value of this type.
         public static final int tv_status=0x7f0b0040;
         public static final int tv_task_memsize=0x7f0b006c;
         public static final int tv_task_name=0x7f0b006b;
-        public static final int tv_title=0x7f0b0071;
+        public static final int tv_title=0x7f0b0074;
         public static final int tv_update_info=0x7f0b0052;
         public static final int up=0x7f0b0021;
         public static final int useLogo=0x7f0b000e;
@@ -1344,9 +1352,10 @@ containing a value of this type.
         public static final int list_item_home=0x7f03002e;
         public static final int list_item_taskinfo=0x7f03002f;
         public static final int popup_app_item=0x7f030030;
-        public static final int setting_click_view=0x7f030031;
-        public static final int setting_item_view=0x7f030032;
-        public static final int support_simple_spinner_dropdown_item=0x7f030033;
+        public static final int process_widget=0x7f030031;
+        public static final int setting_click_view=0x7f030032;
+        public static final int setting_item_view=0x7f030033;
+        public static final int support_simple_spinner_dropdown_item=0x7f030034;
     }
     public static final class menu {
         public static final int splash=0x7f0e0000;
@@ -1633,12 +1642,14 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0d000a;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0d0009;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0d0022;
-        public static final int button_next_style=0x7f0d008e;
-        public static final int button_pre_style=0x7f0d008f;
+        public static final int button_next_style=0x7f0d008f;
+        public static final int button_pre_style=0x7f0d0090;
         public static final int text_content_style=0x7f0d008d;
+        public static final int widget_text=0x7f0d008e;
     }
     public static final class xml {
         public static final int device_admin_sample=0x7f050000;
+        public static final int process_widget_provider=0x7f050001;
     }
     public static final class styleable {
         /**  ============================================ 

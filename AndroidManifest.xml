@@ -32,7 +32,7 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:allowBackup="true"
@@ -53,10 +53,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" >
-            <intent-filter >
-                <action android:name="com.wolf.xxx"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                
+            <intent-filter>
+                <action android:name="com.wolf.xxx" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SettingActivity" />
@@ -69,8 +69,9 @@
         <activity android:name=".NumberAddressActivity" />
         <activity android:name=".CallSmsSafeActivity" />
         <activity android:name=".AppManagerActivity" />
-         <activity android:name=".TaskManagerActivity" />
-         <activity android:name=".TaskSettingActivity" />
+        <activity android:name=".TaskManagerActivity" />
+        <activity android:name=".TaskSettingActivity" />
+
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -84,7 +85,17 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+        
+        
+        <receiver android:name="com.wolf.wolfsafe.receiver.MyWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
 
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/process_widget_provider" />
+        </receiver>
         <service android:name="com.wolf.wolfsafe.service.GPSService" />
         <service android:name="com.wolf.wolfsafe.service.AddressService" />
         <service android:name="com.wolf.wolfsafe.service.CallSmsSafeService" />
