@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 
 import com.wolf.wolfsafe.service.AddressService;
 import com.wolf.wolfsafe.service.CallSmsSafeService;
+import com.wolf.wolfsafe.service.WatchDogService;
 import com.wolf.wolfsafe.ui.SettingClickView;
 import com.wolf.wolfsafe.ui.SettingItemView;
 import com.wolf.wolfsafe.utils.ServiceUtils;
@@ -26,14 +27,18 @@ public class SettingActivity extends Activity {
 	// 设置是否开启显示归属地
 	private SettingItemView siv_show_address;
 	private Intent showAddress;
-	
-	//黑名单拦截设置
+
+	// 黑名单拦截设置
 	private SettingItemView siv_callsms_safe;
 	private Intent callSmsSafeIntent;
-	
-	
-	//设置归属地显示框背景
+
+	// 程序锁看门狗设置
+	private SettingItemView siv_watchdog;
+	private Intent watchDogIntent;
+
+	// 设置归属地显示框背景
 	private SettingClickView scv_changebg;
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -42,20 +47,24 @@ public class SettingActivity extends Activity {
 		boolean isServiceRunning = ServiceUtils.isServiceRunning(
 				SettingActivity.this,
 				"com.wolf.wolfsafe.service.AddressService");
-		
-		if(isServiceRunning){
-			//监听来电的服务是开启的
+
+		if (isServiceRunning) {
+			// 监听来电的服务是开启的
 			siv_show_address.setChecked(true);
-		}else{
+		} else {
 			siv_show_address.setChecked(false);
 		}
-		
-		
+
 		boolean iscallSmsServiceRunning = ServiceUtils.isServiceRunning(
 				SettingActivity.this,
 				"com.wolf.wolfsafe.service.CallSmsSafeService");
 		siv_callsms_safe.setChecked(iscallSmsServiceRunning);
-		
+
+		boolean iswatchdogServiceRunning = ServiceUtils.isServiceRunning(
+				SettingActivity.this,
+				"com.wolf.wolfsafe.service.WatchDogService");
+		siv_watchdog.setChecked(iswatchdogServiceRunning);
+
 	}
 
 	@Override
@@ -100,13 +109,13 @@ public class SettingActivity extends Activity {
 		boolean isServiceRunning = ServiceUtils.isServiceRunning(
 				SettingActivity.this,
 				"com.wolf.wolfsafe.service.AddressService");
-		if(isServiceRunning){
-			//监听来电的服务是开启的
+		if (isServiceRunning) {
+			// 监听来电的服务是开启的
 			siv_show_address.setChecked(true);
-		}else{
+		} else {
 			siv_show_address.setChecked(false);
 		}
-		
+
 		siv_show_address.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -125,58 +134,82 @@ public class SettingActivity extends Activity {
 
 			}
 		});
-		//黑名单拦截设置
+		// 黑名单拦截设置
 		siv_callsms_safe = (SettingItemView) findViewById(R.id.siv_callsms_safe);
 		callSmsSafeIntent = new Intent(this, CallSmsSafeService.class);
 		siv_callsms_safe.setOnClickListener(new OnClickListener() {
 
-					@Override
-					public void onClick(View v) {
-						if (siv_callsms_safe.isChecked()) {
-							// 变为非选中状态
-							siv_callsms_safe.setChecked(false);
-							stopService(callSmsSafeIntent);
-						} else {
-							// 选择状态
-							siv_callsms_safe.setChecked(true);
-							startService(callSmsSafeIntent);
-						}
+			@Override
+			public void onClick(View v) {
+				if (siv_callsms_safe.isChecked()) {
+					// 变为非选中状态
+					siv_callsms_safe.setChecked(false);
+					stopService(callSmsSafeIntent);
+				} else {
+					// 选择状态
+					siv_callsms_safe.setChecked(true);
+					startService(callSmsSafeIntent);
+				}
 
-					}
-				});
-		//设置号码归属地的背景
+			}
+		});
+
+		// 看门狗设置
+		siv_watchdog = (SettingItemView) findViewById(R.id.siv_watchdog);
+		watchDogIntent = new Intent(this, WatchDogService.class);
+		siv_watchdog.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (siv_watchdog.isChecked()) {
+					// 变为非选中状态
+					siv_watchdog.setChecked(false);
+					stopService(watchDogIntent);
+				} else {
+					// 选择状态
+					siv_watchdog.setChecked(true);
+					startService(watchDogIntent);
+				}
+
+			}
+		});
+
+
+		// 设置号码归属地的背景
 		scv_changebg = (SettingClickView) findViewById(R.id.scv_changebg);
 		scv_changebg.setTitle("归属地提示框风格");
-		final String [] items = {"半透明","活力橙","卫士蓝","金属灰","苹果绿"};
+		final String[] items = { "半透明", "活力橙", "卫士蓝", "金属灰", "苹果绿" };
 		int which = sp.getInt("which", 0);
 		scv_changebg.setDesc(items[which]);
-		
+
 		scv_changebg.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				int dd = sp.getInt("which", 0);
 				// 弹出一个对话框
 				AlertDialog.Builder builder = new Builder(SettingActivity.this);
 				builder.setTitle("归属地提示框风格");
-				builder.setSingleChoiceItems(items,dd, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						
-						//保存选择参数
-						Editor editor = sp.edit();
-						editor.putInt("which", which);
-						editor.commit();
-						scv_changebg.setDesc(items[which]);
-						
-						//取消对话框
-						dialog.dismiss();
-					}
-				});
+				builder.setSingleChoiceItems(items, dd,
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+
+								// 保存选择参数
+								Editor editor = sp.edit();
+								editor.putInt("which", which);
+								editor.commit();
+								scv_changebg.setDesc(items[which]);
+
+								// 取消对话框
+								dialog.dismiss();
+							}
+						});
 				builder.setNegativeButton("cancel", null);
 				builder.show();
-				
+
 			}
 		});
 
