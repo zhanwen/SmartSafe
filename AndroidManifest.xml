@@ -96,10 +96,18 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/process_widget_provider" />
         </receiver>
+        <receiver android:name="com.wolf.wolfsafe.receiver.KillAllReceiver">
+            <intent-filter >
+                <action android:name="com.wolf.wolfsafe.killall"/>
+            </intent-filter>
+        </receiver>
+        
         <service android:name="com.wolf.wolfsafe.service.GPSService" />
         <service android:name="com.wolf.wolfsafe.service.AddressService" />
         <service android:name="com.wolf.wolfsafe.service.CallSmsSafeService" />
         <service android:name="com.wolf.wolfsafe.service.AutoCleanService" />
+        <service android:name="com.wolf.wolfsafe.service.UpdateWidgetService" />
+        
         <!--
         <receiver android:name="com.wolf.wolfsafe.receiver.OutCallReceiver">
             <intent-filter>
