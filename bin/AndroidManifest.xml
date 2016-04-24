@@ -73,7 +73,8 @@
         <activity android:name=".TaskManagerActivity" />
         <activity android:name=".TaskSettingActivity" />
 		<activity android:name=".EnterPwdActivity" 
-		    android:launchMode="singleInstance"/>	
+		    android:launchMode="singleInstance"
+		    android:excludeFromRecents="true"/>	
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
