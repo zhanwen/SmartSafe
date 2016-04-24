@@ -1,7 +1,12 @@
 package com.wolf.wolfsafe.db.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentSender.SendIntentException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -14,13 +19,14 @@ import com.wolf.wolfsafe.db.ApplockDBOpenHelper;
  */
 public class ApplockDao {
 	private ApplockDBOpenHelper helper;
-	
+	private Context context;
 	/**
 	 * 构造方法
 	 * @param context 上下文
 	 */
 	public ApplockDao(Context context) {
 		helper = new ApplockDBOpenHelper(context);
+		this.context = context;
 	}
 	
 	/**
@@ -34,6 +40,10 @@ public class ApplockDao {
 		db.insert("applock", null, values);
 		db.close();
 		
+		Intent intent = new Intent();
+		intent.setAction("com.wolf.wolfsafe.applockchange");
+		context.sendBroadcast(intent);
+//		context.getContentResolver().notifyChange(uri, observer)
 	}
 	/**
 	 * 删除一个要锁定应用程序的包名
@@ -42,7 +52,9 @@ public class ApplockDao {
 		SQLiteDatabase db = helper.getWritableDatabase();
 		db.delete("applock", "packname=?", new String[]{packname});
 		db.close();
-		
+		Intent intent = new Intent();
+		intent.setAction("com.wolf.wolfsafe.applockchange");
+		context.sendBroadcast(intent);
 	}
 	
 	/**
@@ -60,6 +72,24 @@ public class ApplockDao {
 		cursor.close();
 		db.close();
 		return result;
+	}
+	
+	/**
+	 * 查询全部的包名
+	 * @param packname
+	 * @return
+	 */
+	public List<String> findAll() {
+		List<String> protectPackname = new ArrayList<String>();
+		boolean result = false;
+		SQLiteDatabase db = helper.getReadableDatabase();
+		Cursor cursor = db.query("applock", new String[]{"packname"}, null, null, null, null, null);
+		while(cursor.moveToNext()) {
+			protectPackname.add(cursor.getString(0));
+		}
+		cursor.close();
+		db.close();
+		return protectPackname;
 	}
 	
 }
