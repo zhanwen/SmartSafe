@@ -76,7 +76,9 @@
 		    android:launchMode="singleInstance"
 		    android:excludeFromRecents="true"/>	
 		<activity android:name=".TrafficManagerActivity" />   
-		<activity android:name=".AntiVirusActivity" />
+		<activity android:name=".AntiVirusActivity" 
+		    android:configChanges="orientation|keyboardHidden|screenSize"
+		    />
 		
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
