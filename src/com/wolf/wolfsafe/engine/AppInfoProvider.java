@@ -1,5 +1,6 @@
 package com.wolf.wolfsafe.engine;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,14 +29,20 @@ public class AppInfoProvider {
 		//所有安装在系统上的应用程序包信息.
 		List<PackageInfo> packInfos = pm.getInstalledPackages(0);
 		List<AppInfo> appInfos = new ArrayList<AppInfo>();
-		AppInfo appInfo = null;
+		
 		for(PackageInfo packInfo : packInfos) {
+			AppInfo appInfo = new AppInfo();
 			//packInfo 相当于一个应用程序apk包的清单文件
 			String packname = packInfo.packageName;
 			Drawable icon = packInfo.applicationInfo.loadIcon(pm); 
 			String name = packInfo.applicationInfo.loadLabel(pm).toString();
 			int flags = packInfo.applicationInfo.flags; //应用程序的标记,相当于用户提交的答卷
-			appInfo = new AppInfo();
+			int uid = packInfo.applicationInfo.uid; //操作系统分配给应用系统的一个固定的编号，一旦应用程序被装到手机uid就固定不变了
+			
+//			File rcvFile = new File("/proc/uid_stat" +  uid + "/tcp_rcv");
+//			File sndFile = new File("/proc/uid_stat" +  uid + "/tcp_snd");
+			
+			appInfo.setUid(uid);
 			if((flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
 				//用户程序
 				appInfo.setUserApp(true);

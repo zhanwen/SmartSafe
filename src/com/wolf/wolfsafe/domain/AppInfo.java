@@ -14,6 +14,14 @@ public class AppInfo {
 	private String packname;
 	private boolean inRom; //为true说明装在了内存里面，false为装在了sd卡里
 	private boolean userApp; //为true说明为用户程序，false为系统应用
+	private int uid;
+	
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 	public Drawable getIcon() {
 		return icon;
 	}

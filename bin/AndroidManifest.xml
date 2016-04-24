@@ -75,6 +75,9 @@
 		<activity android:name=".EnterPwdActivity" 
 		    android:launchMode="singleInstance"
 		    android:excludeFromRecents="true"/>	
+		<activity android:name=".TrafficManagerActivity" />   
+		<activity android:name=".AntiVirusActivity" />
+		
         <receiver android:name="com.wolf.wolfsafe.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
