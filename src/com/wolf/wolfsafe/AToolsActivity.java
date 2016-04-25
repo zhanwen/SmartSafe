@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.wolf.wolfsafe.utils.SmsUtils;
@@ -97,8 +96,14 @@ public class AToolsActivity extends Activity {
 		
 	}
 	
-	
-	
+	/**
+	 * ≥£”√∫≈¬Î≤È—Ø
+	 * @param view
+	 */
+	public void commonNumberQuery(View view) {
+		Intent intent = new Intent(this, CommonNumberQueryActivity.class);
+		startActivity(intent);
+	}
 	
 	
 	
