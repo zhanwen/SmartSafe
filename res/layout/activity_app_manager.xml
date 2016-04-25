@@ -38,6 +38,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
+        <ListView
+            android:id="@+id/lv_app_manager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fastScrollEnabled="true"
+            android:overScrollMode="never" >
+        </ListView>
+
         <LinearLayout
             android:id="@+id/ll_loading"
             android:layout_width="fill_parent"
@@ -60,17 +68,9 @@
             android:id="@+id/tv_status"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="用户程序:6个" 
-            android:textColor="#ffffff"
-            android:background="#ff888888"/>
-
-        <ListView
-            android:overScrollMode="never"
-            android:id="@+id/lv_app_manager"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:fastScrollEnabled="true" >
-        </ListView>
+            android:background="#ff888888"
+            android:text="用户程序:6个"
+            android:textColor="#ffffff" />
     </FrameLayout>
 
 </LinearLayout>

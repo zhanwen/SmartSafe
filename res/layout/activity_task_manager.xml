@@ -35,9 +35,17 @@
     </RelativeLayout>
 
     <FrameLayout
-        android:layout_weight="1000"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent"
+        android:layout_weight="50" >
+
+        <ListView
+            android:id="@+id/lv_task_manager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fastScrollEnabled="true"
+            android:overScrollMode="never" >
+        </ListView>
 
         <LinearLayout
             android:id="@+id/ll_loading"
@@ -64,14 +72,6 @@
             android:background="#ff888888"
             android:text="用户程序:6个"
             android:textColor="#ffffff" />
-
-        <ListView
-            android:id="@+id/lv_task_manager"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:fastScrollEnabled="true"
-            android:overScrollMode="never" >
-        </ListView>
     </FrameLayout>
 
     <LinearLayout
@@ -80,29 +80,32 @@
         android:orientation="horizontal" >
 
         <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="selectAll"
+            android:text="全选" />
+
+        <Button
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1" 
-            android:text="全选"/>
-        <Button
+            android:layout_weight="1"
             android:onClick="selectOppo"
+            android:text="反选" />
+
+        <Button
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1" 
-            android:text="反选"/>
-        <Button
+            android:layout_weight="1"
             android:onClick="killAll"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" 
-            android:text="清理"/>
+            android:text="一键清理" />
+
         <Button
-            android:onClick="enterSetting"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1" 
-            android:text="设置"/>
+            android:layout_weight="1"
+            android:onClick="enterSetting"
+            android:text="设置" />
     </LinearLayout>
 
 </LinearLayout>

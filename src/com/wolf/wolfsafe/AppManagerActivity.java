@@ -187,44 +187,44 @@ public class AppManagerActivity extends Activity implements OnClickListener {
 				contentView.startAnimation(set);
 			}
 		});
-		//程序锁  设置条目长点击的事件监听器
-		lv_app_manager.setOnItemLongClickListener(new OnItemLongClickListener() {
-			@Override
-			public boolean onItemLongClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				if (position == 0) {
-					return true;
-				} else if (position == userAppInfos.size() + 1) {
-					return true;
-				} else if (position <= userAppInfos.size()) {
-					// 用户的程序
-					int newPosition = position - 1;
-					appInfo = userAppInfos.get(newPosition);
-				} else {
-					// 系统程序
-					int newPosition = position - 1 - userAppInfos.size() - 1;
-					appInfo = systemAppInfos.get(newPosition);
-				}
-				
-				ViewHolder holder = (ViewHolder) view.getTag();
-				//判断条目是否存在在程序锁数据库里面
-				if(dao.find(appInfo.getPackname())) {
-					//这个程序是被锁定的，解除锁定，更新界面为打开的小锁图片
-					dao.delete(appInfo.getPackname());
-					holder.iv_status.setImageResource(R.drawable.unlock);
-				}else {
-					//锁定程序，更新界面为关闭的锁
-					dao.add(appInfo.getPackname());
-					holder.iv_status.setImageResource(R.drawable.lock);
-				}
-				
-				
-				return true;
-			}
-		});
-			
-		
-		
+//		//程序锁  设置条目长点击的事件监听器
+//		lv_app_manager.setOnItemLongClickListener(new OnItemLongClickListener() {
+//			@Override
+//			public boolean onItemLongClick(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				if (position == 0) {
+//					return true;
+//				} else if (position == userAppInfos.size() + 1) {
+//					return true;
+//				} else if (position <= userAppInfos.size()) {
+//					// 用户的程序
+//					int newPosition = position - 1;
+//					appInfo = userAppInfos.get(newPosition);
+//				} else {
+//					// 系统程序
+//					int newPosition = position - 1 - userAppInfos.size() - 1;
+//					appInfo = systemAppInfos.get(newPosition);
+//				}
+//				
+////				ViewHolder holder = (ViewHolder) view.getTag();
+////				//判断条目是否存在在程序锁数据库里面
+////				if(dao.find(appInfo.getPackname())) {
+////					//这个程序是被锁定的，解除锁定，更新界面为打开的小锁图片
+////					dao.delete(appInfo.getPackname());
+////					holder.iv_status.setImageResource(R.drawable.unlock);
+////				}else {
+////					//锁定程序，更新界面为关闭的锁
+////					dao.add(appInfo.getPackname());
+////					holder.iv_status.setImageResource(R.drawable.lock);
+////				}
+//				
+//				
+//				return true;
+//			}
+//		});
+//			
+//		
+//		
 	}
 
 	
@@ -335,23 +335,23 @@ public class AppManagerActivity extends Activity implements OnClickListener {
 				holder.tv_name = (TextView) view.findViewById(R.id.tv_app_name);
 				holder.tv_location = (TextView) view
 						.findViewById(R.id.tv_app_location);
-				holder.iv_status = (ImageView) view.findViewById(R.id.iv_status);
+//				holder.iv_status = (ImageView) view.findViewById(R.id.iv_status);
 				view.setTag(holder);
 			}
 
 			holder.iv_icon.setImageDrawable(appInfo.getIcon());
 			holder.tv_name.setText(appInfo.getName());
 			if (appInfo.isInRom()) {
-				holder.tv_location.setText("手机内存" + "uid:" + appInfo.getUid());
+				holder.tv_location.setText("手机内存"); //+ "uid:" + appInfo.getUid()
 			} else {
-				holder.tv_location.setText("外部存储" + "uid:" + appInfo.getUid());
+				holder.tv_location.setText("外部存储"); // + "uid:" + appInfo.getUid()
 			}
 			
-			if(dao.find(appInfo.getPackname())) {
-				holder.iv_status.setImageResource(R.drawable.lock);
-			}else {
-				holder.iv_status.setImageResource(R.drawable.unlock);
-			}
+//			if(dao.find(appInfo.getPackname())) {
+//				holder.iv_status.setImageResource(R.drawable.lock);
+//			}else {
+//				holder.iv_status.setImageResource(R.drawable.unlock);
+//			}
 			return view;
 		}
 
