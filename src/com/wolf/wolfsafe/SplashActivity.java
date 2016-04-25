@@ -78,6 +78,7 @@ public class SplashActivity extends Activity {
 		//拷贝数据库
 		copyDB("address.db");
 		copyDB("antivirus.db");
+		copyDB("commonnum.db");
 		if(update) {
 			//检查升级
 			checkUpdate();
