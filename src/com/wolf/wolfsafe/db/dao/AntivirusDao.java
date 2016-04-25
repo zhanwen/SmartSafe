@@ -24,15 +24,15 @@ public class AntivirusDao {
 	 * @param md5
 	 * @return
 	 */
-	public static boolean isVirus(String md5) {
+	public static String isVirus(String md5) {
 		String path = "/data/data/com.wolf.wolfsafe/files/antivirus.db";
-		boolean result = false;
+		String result = null;
 		//打开数据库文件
 		SQLiteDatabase db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 		Cursor cursor = db.rawQuery("select * from datable where md5=?", new String[]{md5});
 		
 		if(cursor.moveToNext()) {
-			result = true;
+			result = cursor.getString(0);
 		}
 		
 		cursor.close();
