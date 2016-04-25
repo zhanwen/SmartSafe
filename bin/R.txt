@@ -349,7 +349,7 @@ int id icon 0x7f0b002a
 int id ifRoom 0x7f0b0011
 int id image 0x7f0b0027
 int id iv_app_icon 0x7f0b006e
-int id iv_delete 0x7f0b0075
+int id iv_delete 0x7f0b0073
 int id iv_icon 0x7f0b0049
 int id iv_item 0x7f0b0076
 int id iv_protecting 0x7f0b004e
@@ -416,8 +416,8 @@ int id tv_app_location 0x7f0b0070
 int id tv_app_name 0x7f0b006f
 int id tv_avail_rom 0x7f0b0041
 int id tv_avail_sd 0x7f0b0042
-int id tv_black_number 0x7f0b0073
-int id tv_block_mode 0x7f0b0074
+int id tv_black_number 0x7f0b0074
+int id tv_block_mode 0x7f0b0075
 int id tv_cache_size 0x7f0b0072
 int id tv_desc 0x7f0b0083
 int id tv_item 0x7f0b0077

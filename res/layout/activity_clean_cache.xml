@@ -28,15 +28,22 @@
             android:id="@+id/tv_scan_status"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="扫描的状态" 
-            android:textColor="#ffffff"/>
+            android:text="扫描的状态"
+            android:textColor="#ffffff" />
     </FrameLayout>
 
     <LinearLayout
+        android:layout_weight="1000"
         android:id="@+id/ll_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical" >
     </LinearLayout>
+
+    <Button
+        android:onClick="clearAll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:text="全部清理"/>
 
 </LinearLayout>

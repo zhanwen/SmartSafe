@@ -1208,7 +1208,7 @@ containing a value of this type.
         public static final int ifRoom=0x7f0b0011;
         public static final int image=0x7f0b0027;
         public static final int iv_app_icon=0x7f0b006e;
-        public static final int iv_delete=0x7f0b0075;
+        public static final int iv_delete=0x7f0b0073;
         public static final int iv_icon=0x7f0b0049;
         public static final int iv_item=0x7f0b0076;
         public static final int iv_protecting=0x7f0b004e;
@@ -1275,8 +1275,8 @@ containing a value of this type.
         public static final int tv_app_name=0x7f0b006f;
         public static final int tv_avail_rom=0x7f0b0041;
         public static final int tv_avail_sd=0x7f0b0042;
-        public static final int tv_black_number=0x7f0b0073;
-        public static final int tv_block_mode=0x7f0b0074;
+        public static final int tv_black_number=0x7f0b0074;
+        public static final int tv_block_mode=0x7f0b0075;
         public static final int tv_cache_size=0x7f0b0072;
         public static final int tv_desc=0x7f0b0083;
         public static final int tv_item=0x7f0b0077;

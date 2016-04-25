@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="50dip" >
 
     <TextView
         android:id="@+id/tv_app_name"
@@ -20,6 +20,7 @@
         android:text="缓存大小" />
 
       <ImageView
+          android:id="@+id/iv_delete"
           android:layout_marginRight="10sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,4 +28,15 @@
         android:layout_centerVertical="true"
         android:src="@drawable/delete_selector"
          />
+      
+      <View 
+          android:layout_below="@+id/tv_cache_size"
+          android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#66000000"
+          />
+      
+      
+      
+      
 </RelativeLayout>
