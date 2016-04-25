@@ -56,14 +56,14 @@
     	android:layout_height="wrap_content">
         
         <Button 
-            android:background="@drawable/button_select"
+            android:background="@drawable/selector_btn_green"
             android:id="@+id/ok"
             android:layout_width="140dip"
     		android:layout_height="wrap_content"
     		android:text="确定"/>	
        
         <Button 
-            android:background="@drawable/button_select"
+            android:background="@drawable/selector_btn_green"
             android:id="@+id/cancel"
             android:layout_width="140dip"
     		android:layout_height="wrap_content"
