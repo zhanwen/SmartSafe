@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="killAll"
-            android:text="一键清理" />
+            android:text="清理" />
 
         <Button
             android:layout_width="0dip"
