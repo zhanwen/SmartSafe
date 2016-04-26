@@ -34,13 +34,13 @@ public class HomeActivity extends Activity {
 	
 	private static String[] names = {
 			"手机防盗","通讯卫士","软件管理",
-			"进程管理","流量统计","手机杀毒",
+			"进程管理","手机杀毒",
 			"缓存清理","高级工具","设置中心"
 	};
 	
 	private static int[] ids = {
 		R.drawable.safe,R.drawable.callmsgsafe,R.drawable.app,
-		R.drawable.taskmanager,R.drawable.netmanager,R.drawable.trojan,
+		R.drawable.taskmanager,R.drawable.trojan,
 		R.drawable.sysoptimize,R.drawable.atools,R.drawable.settings
 	};
 	
@@ -77,23 +77,23 @@ public class HomeActivity extends Activity {
 						intent = new Intent(HomeActivity.this, TaskManagerActivity.class);
 						startActivity(intent);
 						break;
-					case 4: //流量统计
-						intent = new Intent(HomeActivity.this, TrafficManagerActivity.class);
-						startActivity(intent);
-						break;
-					case 5: //手机杀毒
+//					case 4: //流量统计
+//						intent = new Intent(HomeActivity.this, TrafficManagerActivity.class);
+//						startActivity(intent);
+//						break;
+					case 4: //手机杀毒
 						intent = new Intent(HomeActivity.this, AntiVirusActivity.class);
 						startActivity(intent);
 						break;
-					case 6: //缓存清理
+					case 5: //缓存清理
 						intent = new Intent(HomeActivity.this, CleanCacheActivity.class);
 						startActivity(intent);
 						break;
-					case 7: //进入高级工具
+					case 6: //进入高级工具
 						intent = new Intent(HomeActivity.this, AToolsActivity.class);
 						startActivity(intent);
 						break;
-					case 8: //进入设置中心 
+					case 7: //进入设置中心 
 						intent = new Intent(HomeActivity.this, SettingActivity.class);
 						startActivity(intent);
 						break;
