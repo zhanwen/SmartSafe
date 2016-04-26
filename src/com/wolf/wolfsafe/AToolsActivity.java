@@ -18,9 +18,7 @@ public class AToolsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_atools);
-		
 	}
 	
 	
@@ -105,6 +103,12 @@ public class AToolsActivity extends Activity {
 		startActivity(intent);
 	}
 	
-	
+	/**
+	 * 进入程序锁界面
+	 */
+	public void enterApplock(View view){
+		Intent intent = new Intent(this, AppLockActivity.class);
+		startActivity(intent);
+	}
 	
 }

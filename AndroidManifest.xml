@@ -77,6 +77,8 @@
         <activity android:name=".CleanCacheActivity" />
         <activity android:name=".TaskSettingActivity" />
         <activity android:name=".CommonNumberQueryActivity" />
+        <activity android:name=".AppLockActivity" />
+        <activity android:name=".DragViewActivity" />
 		<activity android:name=".EnterPwdActivity" 
 		    android:launchMode="singleInstance"
 		    android:excludeFromRecents="true"/>	

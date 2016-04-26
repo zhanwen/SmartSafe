@@ -74,5 +74,20 @@
          android:layout_marginLeft="10dip"
         android:layout_marginTop="10dip" />
       
+      
+      <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:drawableLeft="@android:drawable/ic_dialog_dialer"
+        android:gravity="center_vertical"
+        android:onClick="enterApplock"
+        android:text="程序锁"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+      
 
 </LinearLayout>
