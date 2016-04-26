@@ -19,7 +19,7 @@
         android:singleLine="true"
         android:ellipsize="marquee"
         android:textSize="22sp"
-        android:text="最新的手机卫士,欢迎您下载,体现新的功能,让您的手机更加健康"
+        android:text="国内最新的智能安全,提供全面有效且简单安全的手机防盗、防骚扰、锁住重要应用程序,保护您的个人隐私"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
